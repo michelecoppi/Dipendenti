@@ -76,9 +76,9 @@ function aggiungi() {
             tr.appendChild(td);
         
     }
-
+  
     tbody.appendChild(tr);
-
+  
 }
 
 function rimuovi() {
@@ -88,16 +88,25 @@ function rimuovi() {
 
 
 
-    if (ricercaInCol(1, identifica) == -1) {
+    if (ricercaInCol(1, identifica) < 1) {
         alert("Nessun elemento possiede questo id ")
-    } else {
+    }else{
         table.deleteRow(ricercaInCol(1, identifica));
     }
 
 
 
 }
-function arrayjson() {
+function modifica() {
+    let table = document.getElementById("prova");
+    let nome=prompt("Inserisci id della riga da modificare");
+   
+    let selectedCell = selectedRow.cells [targetCell-1];
+    selectedCell.innerHTML = fillContents;
+     
+    $("#tbody td").replaceWith("<td>macaco</td>");
+    
+
 
 }
 
@@ -114,14 +123,18 @@ function ricercaInCol(colonna, identifica) {
 
 
         if (celle[j].innerHTML == identifica) {
-            alert(j);
-            val = j + 1;
+            
+            val=+j;
             break;
+          
         }
 
     }
-
-    alert(val);
+   
+   val=(val/4)+1;
+  
+   
+   
     return val;
 
 }
